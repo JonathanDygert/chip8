@@ -1,0 +1,41 @@
+name: chip8
+ghc-options: -Wall
+
+default-extensions:
+    - DataKinds
+    - FlexibleContexts
+    - FunctionalDependencies
+    - GADTs
+    - LambdaCase
+    - OverloadedStrings
+    - RankNTypes
+    - ScopedTypeVariables
+    - TemplateHaskell
+    - TupleSections
+
+dependencies:
+    - base
+    - vector-sized
+    - lens
+    - mtl
+
+library:
+    source-dirs: src
+    exposed-modules:
+        - Chip8
+        - Chip8.Cpu
+        - Chip8.Ops
+    dependencies:
+        - finite-typelits
+        - MonadRandom
+
+executable:
+    main: Main.hs
+    source-dirs: app
+    ghc-options: -threaded
+    dependencies:
+        - chip8
+        - bytestring
+        - sdl2
+        - random
+        - vector

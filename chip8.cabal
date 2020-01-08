@@ -1,0 +1,51 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.32.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 8d14981d2fb7e4b60cbb3569762a2e740c6ff152cce968bf5a072a8e860ec8ac
+
+name:           chip8
+version:        0.0.0
+build-type:     Simple
+
+library
+  exposed-modules:
+      Chip8
+      Chip8.Cpu
+      Chip8.Ops
+  other-modules:
+      Paths_chip8
+  hs-source-dirs:
+      src
+  default-extensions: DataKinds FlexibleContexts FunctionalDependencies GADTs LambdaCase OverloadedStrings RankNTypes ScopedTypeVariables TemplateHaskell TupleSections
+  ghc-options: -Wall
+  build-depends:
+      MonadRandom
+    , base
+    , finite-typelits
+    , lens
+    , mtl
+    , vector-sized
+  default-language: Haskell2010
+
+executable chip8
+  main-is: Main.hs
+  other-modules:
+      Paths_chip8
+  hs-source-dirs:
+      app
+  default-extensions: DataKinds FlexibleContexts FunctionalDependencies GADTs LambdaCase OverloadedStrings RankNTypes ScopedTypeVariables TemplateHaskell TupleSections
+  ghc-options: -Wall -threaded
+  build-depends:
+      base
+    , bytestring
+    , chip8
+    , lens
+    , mtl
+    , random
+    , sdl2
+    , vector
+    , vector-sized
+  default-language: Haskell2010
